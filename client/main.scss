@@ -1,0 +1,574 @@
+// Imports
+@import "../node_modules/bootstrap/scss/bootstrap.scss";
+@import url("https://fonts.googleapis.com/css2?family=Caesar+Dressing&family=Merriweather:wght@300;400;700;900&display=swap");
+@font-face {
+  font-family: "Tombstone";
+  src: url("../public/assets/fonts/Tombstone-Demo.otf");
+}
+
+// Colors
+$white-text: #ffffffde;
+$black-text: #222222;
+$red-color: #990101;
+$white-btn: #ffffffbf;
+$black-elem: #1e1f25;
+$bg-linear: linear-gradient(180deg, #14151c -2.59%, rgba(20, 21, 28, 0) 100%);
+.text-red {
+  color: $red-color;
+}
+
+.bg-red {
+  background: $red-color;
+}
+
+// Fonts
+$primary-font: "Merriweather", serif;
+$secondary-font: "Caesar Dressing", cursive;
+
+.f-ts {
+  font-family: $secondary-font;
+}
+
+// Commons
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #14151c;
+  color: $white-text;
+  font: 1.1rem $primary-font;
+  line-height: 1.7rem;
+  overflow-x: hidden;
+}
+
+a {
+  color: $white-text;
+  text-decoration: none;
+
+  &:hover {
+    color: $white-text;
+  }
+}
+
+button {
+  outline: none;
+}
+
+button.primary {
+  background: $red-color;
+  color: $white-text;
+}
+
+button.secondary {
+  background: $white-btn;
+  color: $black-text;
+}
+
+button.primary,
+button.secondary {
+  border-radius: 10px;
+  transition: 0.3s;
+
+  &:hover {
+    filter: brightness(75%);
+  }
+}
+
+@supports (-webkit-touch-callout: none) {
+  /* CSS specific to iOS devices */
+  input[type="date"],
+  select {
+    -webkit-appearance: none;
+    padding: 20px 8px !important;
+  }
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+// Header
+h1.header-logo {
+  font-family: $secondary-font;
+  color: $red-color;
+}
+
+.fa-sign-out {
+  cursor: pointer;
+}
+
+.back-icon {
+  cursor: pointer;
+}
+
+// Karma Tracker
+.karma-tracker {
+  h1 {
+    font-family: $secondary-font;
+  }
+
+  p {
+    max-width: 350px;
+    font-weight: lighter;
+  }
+}
+
+.text-attention-karma {
+  font-size: 0.8rem;
+}
+
+.CircularProgressbar-text {
+  font-family: $secondary-font;
+}
+
+// Features
+.feature-wrapper {
+  overflow-x: auto;
+  white-space: nowrap;
+  cursor: grab;
+
+  &::-webkit-scrollbar {
+    width: 2px;
+  }
+
+  & a:first-child {
+    margin-left: 1rem !important;
+  }
+
+  & a:last-child {
+    margin-right: 1rem !important;
+  }
+}
+
+.feature-card {
+  background: #1e1f25;
+  height: 220px;
+  min-width: 140px;
+  border-radius: 15px;
+  font: 1.5rem $secondary-font;
+  letter-spacing: 1px;
+  z-index: 1;
+  background-size: cover;
+  background-position: center;
+  flex: 1 1 auto;
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Old versions of Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Edge, Opera and Firefox */
+
+  &::before {
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 100%;
+    background: rgba($color: #1e1f25, $alpha: 0.5);
+    left: 0;
+    z-index: 1;
+  }
+
+  p {
+    width: fit-content;
+    z-index: 2;
+    white-space: normal;
+  }
+
+  p::before {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 8px;
+    top: 35px;
+    left: 0;
+    background: $red-color;
+    transition: 0.3s;
+    z-index: -1;
+  }
+
+  &:hover p::before {
+    width: 100%;
+  }
+}
+
+// Onboard
+.onboard-bg {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  z-index: 1;
+
+  &::before {
+    background: $bg-linear;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    position: absolute;
+    content: "";
+    z-index: -1;
+  }
+
+  .overlay {
+    background: $black-elem;
+    z-index: -1;
+    opacity: 45%;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  p {
+    color: $white-btn;
+  }
+}
+
+// Form
+.input-group {
+  input,
+  select {
+    background: $black-elem;
+    border: 1px solid rgba($color: #ffffff, $alpha: 0.35);
+    border-radius: 10px !important;
+    font-family: $primary-font;
+    color: $white-text;
+  }
+}
+
+.two-input-column {
+  div {
+    flex: 1 1 auto;
+  }
+}
+
+.file-upload {
+  border: 1px solid rgba($color: #ffffff, $alpha: 0.35);
+  width: 100px;
+  height: 100px;
+  border-radius: 10px !important;
+  cursor: pointer;
+
+  & > * {
+    cursor: pointer;
+  }
+
+  input {
+    z-index: 3;
+    cursor: pointer !important;
+  }
+
+  p {
+    font-size: 0.7rem;
+    color: $black-text;
+    bottom: -10px;
+  }
+
+  img {
+    object-fit: cover;
+    object-position: center;
+    z-index: -1;
+  }
+}
+
+.sub-label {
+  font-size: 0.8rem;
+}
+
+.badge-weton {
+  background: $red-color;
+  width: max-content;
+}
+
+.badge-checkbox {
+  border: 1px solid rgba($color: #ffffff, $alpha: 0.6);
+  border-radius: 10px;
+  font-family: $secondary-font;
+  font-size: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+
+  &.checked {
+    background: $red-color;
+    border: 1px solid $red-color;
+  }
+
+  &:hover {
+    border: 1px solid $red-color;
+  }
+
+  input {
+    cursor: pointer;
+  }
+}
+
+.checkbox-group {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  grid-gap: 10px;
+
+  & > div {
+    text-align: center;
+  }
+}
+
+.input-right-span {
+  background: $black-elem;
+  border: 1px solid rgba($color: #ffffff, $alpha: 0.35);
+  border-radius: 10px !important;
+  font-family: $primary-font;
+  color: $white-text;
+
+  input {
+    flex-grow: 1;
+    border: none;
+  }
+}
+
+// Payment
+.payment-group {
+  background: $black-elem;
+  border-radius: 15px;
+}
+
+.payment-method {
+  /* The container */
+  label {
+    display: block;
+    position: relative;
+    cursor: pointer;
+    font: 1.3rem $secondary-font;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+
+  label p {
+    font: 1rem $primary-font;
+  }
+
+  /* Hide the browser's default checkbox */
+  label input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+
+  /* Create a custom checkbox */
+  .radio-checkmark {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    height: 25px;
+    width: 25px;
+    border-radius: 50%;
+    background-color: #eee;
+    transition: 0.3s;
+  }
+
+  /* On mouse-over, add a grey background color */
+  label:hover input ~ .radio-checkmark {
+    background-color: #ccc;
+  }
+
+  /* When the checkbox is checked, add a blue background */
+  label input:checked ~ .radio-checkmark {
+    background-color: $red-color;
+  }
+
+  /* Create the checkmark/indicator (hidden when not checked) */
+  .radio-checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+
+  /* Show the checkmark when checked */
+  label input:checked ~ .radio-checkmark:after {
+    display: block;
+  }
+
+  /* Style the checkmark/indicator */
+  label .radio-checkmark:after {
+    width: 10px;
+    height: 10px;
+    background: #ffffff;
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+.simple-radio {
+  margin-right: 30px;
+  label {
+    font: 1.2rem $primary-font !important;
+  }
+
+  .radio-checkmark {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    border-radius: 50%;
+    background-color: #eee;
+    transition: 0.3s;
+  }
+}
+
+// Activity
+.activity-container {
+  background: $black-elem;
+  border-radius: 10px;
+
+  .activity-thumbnail-img {
+    width: 80px;
+    height: 80px;
+    border-radius: 5px;
+
+    img {
+      object-fit: cover;
+      object-position: center;
+    }
+  }
+
+  hr {
+    background: rgba($color: #ffffff, $alpha: 0.35);
+  }
+
+  .activity-title {
+    font-size: 1rem;
+    margin-bottom: -8px !important;
+  }
+
+  .activity-penumbalan {
+    font-size: 0.8rem;
+    margin-bottom: -3px !important;
+  }
+
+  .activity-date {
+    font-size: 0.8rem;
+    letter-spacing: 0.5px;
+  }
+
+  .badge-status {
+    font-size: 13px;
+    letter-spacing: 0.5px;
+  }
+
+  .popup-menu-activity {
+    background: #232631;
+    border-radius: 8px;
+    right: 0;
+    bottom: -50px;
+    z-index: 1;
+    font-size: 0.9rem;
+    transition: 0.3s;
+
+    &.hide {
+      opacity: 0;
+      bottom: -40px;
+      visibility: hidden;
+    }
+  }
+
+  .dot-icon {
+    width: 20px;
+
+    .dot {
+      width: 4px;
+      height: 4px;
+      margin: 5px;
+      background: $white-text;
+      border-radius: 50%;
+    }
+  }
+}
+
+// Alert
+.alert {
+  z-index: 1;
+  transition: 0.3s;
+  transition-delay: 0.1s;
+
+  &.hide-alert {
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  .alert-overlay {
+    background: rgba($color: #000000, $alpha: 0.5);
+  }
+
+  .alert-box {
+    background: $black-elem;
+    border-radius: 15px 15px 0 0;
+    transition: 0.3s;
+
+    &.hide-alert {
+      bottom: -100% !important;
+    }
+  }
+}
+
+.floating-alert {
+  transition: 0.3s;
+  z-index: 1;
+
+  .body {
+    border-radius: 8px;
+    background: $black-elem;
+  }
+
+  &.hide {
+    bottom: -100% !important;
+  }
+}
+
+// Responsive
+@media screen and (max-width: 538px) {
+  .first-double-input {
+    margin-right: 0 !important;
+    margin-bottom: 2rem;
+  }
+}
+
+@media screen and (max-width: 440px) {
+  .input-group {
+    flex-direction: column;
+
+    .target-info {
+      margin: 15px 0 0 !important;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      .target-name {
+        max-width: 100%;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+      }
+    }
+  }
+
+  .payment-group {
+    padding: 0 35px !important;
+  }
+}
